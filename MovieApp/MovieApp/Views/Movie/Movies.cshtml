@@ -1,0 +1,25 @@
+﻿@model List<MovieModel>
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<h2>Movies</h2>
+
+<div>
+    @Html.ActionLink("Add Movie", "Add")
+    @foreach (MovieModel movie in Model)
+    {
+    <ul>
+        <li>
+            @movie.Name
+            @Html.ActionLink("Details", "MovieDetails", movie)
+            @Html.ActionLink("Edit", "Edit", movie)
+            @Html.ActionLink("Delete", "DeleteMovie", movie)
+        </li>
+        
+    </ul>
+    }
+
+    @Html.ActionLink("Back to home", "Index", "Home")
+</div>
+
